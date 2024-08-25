@@ -120,7 +120,7 @@ ggplot(data = nycflights, aes(x = dep_delay)) +
 
 1.  Look carefully at these three histograms. How do they compare? Are features revealed in one that are obscured in another?
 
-**The large bin size plot hides the fact that the majority of flights actually have a slight delay, which is easily visible once the bin size is reduced.**
+**The larger bin size plots hide the fact that the majority of flights actually have a slight delay, which is easily visible in the smallest bin size plot.**
 
 If you want to visualize only on delays of flights headed to Los Angeles, you need to first `filter` the data for flights with that destination (`dest == "LAX"`) and then make a histogram of the departure delays of only those flights.
 
@@ -186,7 +186,7 @@ Note that you can separate the conditions using commas if you want flights that 
     meet these criteria? 
 
 **There were 68 flights in February headed to SFO**
-```{r}
+```{r e_2}
 # Create a filtered dataframe for SFO flights in February
 sfo_feb_flights <- nycflights %>%
   filter(dest == "SFO", month == 2)
@@ -200,20 +200,20 @@ sfo_feb_flights |>
     histogram and appropriate summary statistics. **Hint:** The summary 
     statistics you use should depend on the shape of the distribution.
     
-**The distribution of arrival delays (`arr_delay`) is unimodal and right skewed. Due to the skewness, we will prefer the *median* (-5 min) and *IQR* (31 min) as measures of central tendency.**
-```{r}
+**The distribution of arrival delays (`arr_delay`) is unimodal and right skewed. Due to the skewness, we will prefer the *median* (-5 min) and *IQR* (31 min) as measures of central tendency, as these measures are less sensitive to skew than mean / standard deviation.**
+```{r e_3}
 # Plot histogram of arrival
 ggplot(nycflights, aes(x = arr_delay)) +
   geom_histogram(binwidth = 10)
 
-# Calculate measure of central tendency
+# Calculate measures of central tendency
 arr_delay_metrics <- nycflights |> 
   summarise(mean_ad   = mean(arr_delay), 
             median_ad = median(arr_delay),
             iqr_ad = IQR(arr_delay),
             n         = n())
 
-# Review measure of central tendency
+# Review measures of central tendency
 glimpse(arr_delay_metrics)
 ```
 
@@ -231,8 +231,8 @@ Here, we first grouped the data by `origin` and then calculated the summary stat
     in the `sfo_feb_flights` data frame, grouped by carrier. Which carrier
     has the most variable arrival delays?
 
-DL and UA tie for the highest arr_delay IQR (22 minutes), but given UA has an extreme outlier (200 min), I would describe DL as the most generally variable (even though IQR is robust to outliers, this is a reasonable tie-breaker). 
-```{r}
+**DL and UA tie for the highest arr_delay IQR (22 minutes), but given UA has an extreme outlier (200 min), I would describe DL as the most generally variable (even though IQR is robust to outliers, this is a reasonable tie-breaker). **
+```{r e_4}
 # Calculate median and IQR for arr_delay per carrier
 sfo_feb_flights %>%
   group_by(carrier) %>%
@@ -310,7 +310,7 @@ ggplot(data = nycflights, aes(x = origin, fill = dep_type)) +
   geom_bar()
 ```
 
-**I would choose LGA as it has the high rate of on-time departures.**
+**I would choose LGA as it has the highest rate of on-time departures.**
 
 * * *
 
@@ -320,14 +320,22 @@ ggplot(data = nycflights, aes(x = origin, fill = dep_type)) +
     average speed, `avg_speed` traveled by the plane for each flight (in mph).
     **Hint:** Average speed can be calculated as distance divided by
     number of hours of travel, and note that `air_time` is given in minutes.
-    
-**Insert your answer here**
+
+```{r e_7}
+# Calculate average speed
+nycflights <- nycflights |> 
+  mutate(avg_speed = distance / (air_time / 60)) # Convert given air_time minutes to hours
+```
 
 8.  Make a scatterplot of `avg_speed` vs. `distance`. Describe the relationship
     between average speed and distance.
     **Hint:** Use `geom_point()`.
 
-**Insert your answer here**
+**As expected, we see a positive relationship between `avg_speed` and `distance`**
+```{r e_8}
+ggplot(nycflights, aes(x = avg_speed, y = distance)) +
+  geom_point()
+```
 
 9.  Replicate the following plot. **Hint:** The data frame plotted only
     contains flights from American Airlines, Delta Airlines, and United
@@ -339,4 +347,19 @@ ggplot(data = nycflights, aes(x = origin, fill = dep_type)) +
 knitr::include_graphics('Question9Plot.png')
 ```
 
-**Insert your answer here**
+**Defining "arriving on time" as `arr_delay` <= 0, the corresponding max `dep_delay` observation is approximately 60 minutes.**
+**This indicates that departure delays greater than 60 minutes are very likely to delay expected arrival time**
+```{r e_9}
+# Filter for AA, DL, and UA
+aa_dl_ua_flights <- nycflights |> 
+  filter(carrier %in% c('AA', 'DL', 'UA'))
+
+# Create requested scatterplot of dep_delay vs arr_delay by carrier
+ggplot(aa_dl_ua_flights, aes(x = dep_delay, y = arr_delay, color = carrier)) +
+  geom_point()
+
+# Confirm the max dep_delay given arr_delay <=0 
+aa_dl_ua_flights |> 
+  filter(arr_delay <= 0) |> 
+  arrange(desc(dep_delay))
+```
