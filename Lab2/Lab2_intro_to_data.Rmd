@@ -120,7 +120,7 @@ ggplot(data = nycflights, aes(x = dep_delay)) +
 
 1.  Look carefully at these three histograms. How do they compare? Are features revealed in one that are obscured in another?
 
-**Insert your answer here**
+**The large bin size plot hides the fact that the majority of flights actually have a slight delay, which is easily visible once the bin size is reduced.**
 
 If you want to visualize only on delays of flights headed to Los Angeles, you need to first `filter` the data for flights with that destination (`dest == "LAX"`) and then make a histogram of the departure delays of only those flights.
 
@@ -185,13 +185,37 @@ Note that you can separate the conditions using commas if you want flights that 
     and save this data frame as `sfo_feb_flights`. How many flights 
     meet these criteria? 
 
-**Insert your answer here**
+**There were 68 flights in February headed to SFO**
+```{r}
+# Create a filtered dataframe for SFO flights in February
+sfo_feb_flights <- nycflights %>%
+  filter(dest == "SFO", month == 2)
+
+# Count how many flights
+sfo_feb_flights |> 
+  summarize(n())
+```
 
 3.  Describe the distribution of the **arrival** delays of these flights using a 
     histogram and appropriate summary statistics. **Hint:** The summary 
     statistics you use should depend on the shape of the distribution.
     
-**Insert your answer here**
+**The distribution of arrival delays (`arr_delay`) is unimodal and right skewed. Due to the skewness, we will prefer the *median* (-5 min) and *IQR* (31 min) as measures of central tendency.**
+```{r}
+# Plot histogram of arrival
+ggplot(nycflights, aes(x = arr_delay)) +
+  geom_histogram(binwidth = 10)
+
+# Calculate measure of central tendency
+arr_delay_metrics <- nycflights |> 
+  summarise(mean_ad   = mean(arr_delay), 
+            median_ad = median(arr_delay),
+            iqr_ad = IQR(arr_delay),
+            n         = n())
+
+# Review measure of central tendency
+glimpse(arr_delay_metrics)
+```
 
 Another useful technique is quickly calculating summary statistics for various groups in your data frame. For example, we can modify the above command using the `group_by` function to get the same summary stats for each origin airport:
 
@@ -207,7 +231,17 @@ Here, we first grouped the data by `origin` and then calculated the summary stat
     in the `sfo_feb_flights` data frame, grouped by carrier. Which carrier
     has the most variable arrival delays?
 
-**Insert your answer here**
+DL and UA tie for the highest arr_delay IQR (22 minutes), but given UA has an extreme outlier (200 min), I would describe DL as the most generally variable (even though IQR is robust to outliers, this is a reasonable tie-breaker). 
+```{r}
+# Calculate median and IQR for arr_delay per carrier
+sfo_feb_flights %>%
+  group_by(carrier) %>%
+  summarise(median_ad = median(arr_delay), iqr_ad = IQR(arr_delay), n_flights = n())
+
+# Plot histogram to visualize outliers
+ggplot(sfo_feb_flights, aes(x = arr_delay, fill = carrier)) +
+  geom_histogram(binwidth = 10, alpha = 0.5)
+```
 
 ### Departure delays by month
 
@@ -233,7 +267,8 @@ nycflights %>%
     Another option is to choose the month with the lowest median departure delay. 
     What are the pros and cons of these two choices?
 
-**Insert your answer here**
+**Choosing a month based on the mean would be reasonable if the distribution was relatively normal, and there were no extreme outliers, as the mean is sensitive to skew & outliers.**
+**The median, in contrast, is robust to skewness and outliers, and would be a better choice if the departure delays are not normally distributed.**
 
 ### On time departure rate for NYC airports
 
@@ -275,7 +310,7 @@ ggplot(data = nycflights, aes(x = origin, fill = dep_type)) +
   geom_bar()
 ```
 
-**Insert your answer here**
+**I would choose LGA as it has the high rate of on-time departures.**
 
 * * *
 
