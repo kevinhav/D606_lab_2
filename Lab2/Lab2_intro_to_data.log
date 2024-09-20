@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.24)  7 SEP 2024 09:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.24)  19 SEP 2024 21:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -461,7 +461,7 @@ Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/hist-dep-delay-bi
 <Lab2_intro_to_data_files/figure-latex/lax-flights-hist-1.pdf, id=48, 469.755pt x 325.215pt>
 File: Lab2_intro_to_data_files/figure-latex/lax-flights-hist-1.pdf Graphic file (type pdf)
 <use Lab2_intro_to_data_files/figure-latex/lax-flights-hist-1.pdf>
-Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/lax-flights-hist-1.pdf  used on input line 349.
+Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/lax-flights-hist-1.pdf  used on input line 351.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 
@@ -473,7 +473,7 @@ Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/lax-flights-hist-
 <Lab2_intro_to_data_files/figure-latex/e_3-1.pdf, id=77, 469.755pt x 325.215pt>
 File: Lab2_intro_to_data_files/figure-latex/e_3-1.pdf Graphic file (type pdf)
 <use Lab2_intro_to_data_files/figure-latex/e_3-1.pdf>
-Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/e_3-1.pdf  used on input line 521.
+Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/e_3-1.pdf  used on input line 523.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 
@@ -481,7 +481,7 @@ Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/e_3-1.pdf  used o
 <Lab2_intro_to_data_files/figure-latex/e_4-1.pdf, id=89, 469.755pt x 325.215pt>
 File: Lab2_intro_to_data_files/figure-latex/e_4-1.pdf Graphic file (type pdf)
 <use Lab2_intro_to_data_files/figure-latex/e_4-1.pdf>
-Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/e_4-1.pdf  used on input line 613.
+Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/e_4-1.pdf  used on input line 603.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 
@@ -493,7 +493,7 @@ Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/e_4-1.pdf  used o
 <Lab2_intro_to_data_files/figure-latex/viz-origin-dep-type-1.pdf, id=114, 469.755pt x 325.215pt>
 File: Lab2_intro_to_data_files/figure-latex/viz-origin-dep-type-1.pdf Graphic file (type pdf)
 <use Lab2_intro_to_data_files/figure-latex/viz-origin-dep-type-1.pdf>
-Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/viz-origin-dep-type-1.pdf  used on input line 771.
+Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/viz-origin-dep-type-1.pdf  used on input line 761.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 
@@ -501,24 +501,24 @@ Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/viz-origin-dep-ty
 <Lab2_intro_to_data_files/figure-latex/e_8-1.pdf, id=127, 469.755pt x 325.215pt>
 File: Lab2_intro_to_data_files/figure-latex/e_8-1.pdf Graphic file (type pdf)
 <use Lab2_intro_to_data_files/figure-latex/e_8-1.pdf>
-Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/e_8-1.pdf  used on input line 820.
+Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/e_8-1.pdf  used on input line 810.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <Question9Plot.png, id=128, 505.89pt x 289.08pt>
 File: Question9Plot.png Graphic file (type png)
 <use Question9Plot.png>
-Package pdftex.def Info: Question9Plot.png  used on input line 835.
+Package pdftex.def Info: Question9Plot.png  used on input line 825.
 (pdftex.def)             Requested size: 469.76265pt x 268.43579pt.
 
 
 [13 <./Lab2_intro_to_data_files/figure-latex/e_8-1.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 846.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 836.
 (/Users/kevinhav/Library/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 <Lab2_intro_to_data_files/figure-latex/e_9-1.pdf, id=141, 469.755pt x 325.215pt>
 File: Lab2_intro_to_data_files/figure-latex/e_9-1.pdf Graphic file (type pdf)
 <use Lab2_intro_to_data_files/figure-latex/e_9-1.pdf>
-Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/e_9-1.pdf  used on input line 854.
+Package pdftex.def Info: Lab2_intro_to_data_files/figure-latex/e_9-1.pdf  used on input line 844.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 
@@ -542,7 +542,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  89i,6n,93p,560b,585s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/kevinhav/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/kevinhav/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/kevinhav/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></Users/kevinhav/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/kevinhav/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/kevinhav/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb></Users/kevinhav/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></Users/kevinhav/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></Users/kevinhav/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on Lab2_intro_to_data.pdf (15 pages, 2770274 bytes).
+Output written on Lab2_intro_to_data.pdf (15 pages, 2770269 bytes).
 PDF statistics:
  235 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams
